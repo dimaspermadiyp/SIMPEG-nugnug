@@ -39,8 +39,12 @@ class Dashboard_Admin extends CI_Controller {
 			$this->pagination->initialize($config);
 			$d["paginator"] =$this->pagination->create_links();
 			
-			$d['data_pegawai'] = $this->db->query("select a.nip, a.nama_pegawai, b.golongan, c.nama_status, a.id_pegawai from tbl_data_pegawai a left join tbl_master_golongan b on a.id_golongan=b.id_golongan
-			left join tbl_master_status_pegawai c on a.status_pegawai=c.id_status_pegawai limit ".$offset.",".$limit."");
+			$d['data_pegawai'] = $this->db->query("select a.nip, a.nama_pegawai, b.golongan, c.nama_status, a.id_pegawai,u.nama_unit_kerja as 'unit_kerja'
+				from tbl_data_pegawai a 
+			left join tbl_master_golongan b on a.id_golongan=b.id_golongan
+			left join tbl_master_status_pegawai c on a.status_pegawai=c.id_status_pegawai 
+			left join tbl_master_unit_kerja u on u.id_unit_kerja = a.id_unit_kerja
+			limit ".$offset.",".$limit."");
 			
 			$this->load->view('dashboard_admin/home/home',$d);
 		}

@@ -133,7 +133,7 @@
         <th>NIP</th>
         <th>Nama Pegawai</th>
         <th>Golongan</th>
-		<th>Status Pegawai</th>
+		<th>Unit Kerja</th>
 		<th>Aksi</th>
       </tr>
     </thead>
@@ -148,7 +148,7 @@
         <td><?php echo $dp['nip']; ?></td>
         <td><?php echo $dp['nama_pegawai']; ?></td>
         <td><?php echo $dp['golongan']; ?></td>
-        <td><?php echo $dp['nama_status']; ?></td>
+        <td><?php echo $dp['unit_kerja']; ?></td>
 		<td>
 	        <div class="btn-group">
 	          <a class="btn btn-small" href="<?php echo base_url(); ?>pegawai/detail/<?php echo $dp['id_pegawai']; ?>"><i class="icon-ok-circle"></i> Lihat Detail</a>
